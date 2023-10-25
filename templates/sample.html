@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       table, tr, td, th{
+        border: 1px solid black;
+        border-collapse: collapse;
+       }
+    </style>
+</head>
+<body>
+    
+    <form method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="name">Age:</label>
+        <input type="nbr" id="name" name="age">
+        <label for="name">Roll_No:</label>
+        <input type="nbr" id="name" name="roll">
+        <label for="name">Tamil:</label>
+        <input type="nbr" id="name" name="tamil">
+        <label for="name">Englsih:</label>
+        <input type="nbr" id="name" name="english">
+        <label for="name">Maths:</label>
+        <input type="nbr" id="name" name="maths">
+        <label for="name">Science:</label>
+        <input type="nbr" id="name" name="science">
+        <label for="name">Social:</label>
+        <input type="nbr" id="name" name="social">
+
+
+        <input type="submit" value="submit">
+        </form>
+        {{s}}
+        <table>
+            <tr>
+                <th colspan="11">STUDENT DETAILS</DETAILS></th>
+            </tr>
+        
+            <tr>
+                <th>Serial_NO:</th>
+                <th>Name:</th>
+                <th>Age:</th>
+                <th>Roll_No:</th>
+                
+                <th>Tamil:</th>
+                <th>Englsih:</th>
+                <th>Maths:</th>
+                <th>Science:</th>
+                <th>Social:</th>
+                <th colspan="2">Actions:</th>
+                
+                
+            </tr>
+            
+                {%for i in s%}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{i.Name}}</td>
+                    <td>{{i.Age}}</td>
+                    <td>{{i.Roll_NO}}</td>
+                    {%for j in i.Marks%}
+                    <td>{{j}}</td>
+                    {%endfor%}
+                    <td><a href="{{url_for('edit',item=loop.index)}}">Edit</a></td>
+                    <td><a href="{{url_for('fun1',a=loop.index)}}">Delete</a></td>
+                    
+            </tr>
+            <tr></tr>
+                    {%endfor%}
+            </table>
+
+
+</body>
+</html>
